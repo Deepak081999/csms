@@ -3,7 +3,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
-// import axios from 'axios';
+import axios from 'axios';
 
 import ticketRoutes from './routes/ticketRoutes.js';
 
@@ -16,6 +16,24 @@ app.use(express.json());
 // 👉 Route for your ticket management system
 app.use('/api/tickets', ticketRoutes);
 
+// 👉 New route to fetch GitHub repositories
+
+app.get('/api/repos', async (req, res) => {
+    try {
+        const response = await axios.get('https://api.github.com/user/repos?per_page=100', {
+            headers: {
+                Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+                Accept: 'application/vnd.github+json'
+            }
+        });
+
+        res.json(response.data);
+
+    } catch (error) {
+        console.error('GitHub fetch failed:', error.message);
+        res.status(500).json({ error: 'GitHub fetch failed' });
+    }
+});
 
 
 // MongoDB Connection and Server Start

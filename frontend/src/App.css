@@ -32,7 +32,57 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+/* # git css */
+
+.github-section {
+  background-color: #0d1117;
+  color: #c9d1d9;
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 2rem 0;
+}
+
+.repo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.repo-card {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 1rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.repo-card:hover {
+  transform: translateY(-4px);
+}
+
+.repo-card a {
+  color: #58a6ff;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.repo-card p {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+}
+
+.language-badge {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.2rem 0.6rem;
+  background-color: #238636;
+  color: white;
+  border-radius: 20px;
+  font-size: 0.75rem;
 }
