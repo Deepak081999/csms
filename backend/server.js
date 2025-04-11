@@ -7,6 +7,8 @@ import axios from 'axios';
 
 import ticketRoutes from './routes/ticketRoutes.js';
 
+import authRoutes from './routes/authRoutes.js';
+
 dotenv.config();
 
 const app = express();
@@ -15,6 +17,8 @@ app.use(express.json());
 
 // 👉 Route for your ticket management system
 app.use('/api/tickets', ticketRoutes);
+
+app.use('/api/auth', authRoutes);
 
 // 👉 New route to fetch GitHub repositories
 
