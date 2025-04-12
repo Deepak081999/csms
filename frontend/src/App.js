@@ -1,31 +1,32 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import { useState } from 'react';
-
-// import TicketForm from './components/TicketForm';
-// import TicketList from './components/TicketList';
-// import GitHubRepoList from './git/GitHubRepoList';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import Register from './pages/Register';
-
+import ProtectedLayout from './components/ProtectedLayout';
+import NewTicket from './pages/TicketForm';
+import TicketList from './pages/TicketList';
+import GitHubRepoList from './pages/GitHubRepoList';
+import Settings from './pages/Settings';
+import Role from './pages/Role';
+import Permission from './pages/Permission';
+import Resume from './pages/Resume';
 
 function App() {
-  // const [refreshFlag, setRefreshFlag] = useState(false);
-
-  // const refresh = () => setRefreshFlag(!refreshFlag);
-
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
-
-        {/* <h1>Customer Service Management</h1>
-        <TicketForm refresh={refresh} />
-        <TicketList key={refreshFlag} />
-        <hr />
-        <GitHubRepoList /> */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/dashboard" element={<ProtectedLayout />}>
+          <Route path="new" element={<NewTicket />} />
+          <Route path="tickets" element={<TicketList />} />
+          <Route path="github" element={<GitHubRepoList />} />
+          <Route path="settings" element={<Settings />} />
+          <Route path="role" element={<Role />} />
+          <Route path="permission" element={<Permission />} />
+          <Route path="resume" element={<Resume />} />
+        </Route>
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
 
