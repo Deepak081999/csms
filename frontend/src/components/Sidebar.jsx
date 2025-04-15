@@ -8,6 +8,9 @@ export default function Sidebar() {
                 <NavLink to="/dashboard/tickets" className="sidebar-item" activeClassName="active">
                     Ticket Manager
                 </NavLink>
+                <NavLink to="/dashboard/resume" className="sidebar-item" activeClassName="active">
+                    Resume
+                </NavLink>
                 <NavLink to="/dashboard/linkedin" className="sidebar-item" activeClassName="active">
                     LinkedIn Profile
                 </NavLink>
@@ -23,9 +26,7 @@ export default function Sidebar() {
                 <NavLink to="/dashboard/permission" className="sidebar-item" activeClassName="active">
                     Permission
                 </NavLink>
-                <NavLink to="/dashboard/resume" className="sidebar-item" activeClassName="active">
-                    Resume
-                </NavLink>
+
             </nav>
         </aside>
     );
