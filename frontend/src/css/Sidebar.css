@@ -1,20 +1,63 @@
+/* Sidebar.css */
+
 .sidebar {
     width: 200px;
-    background: #f5f5f5;
+    /* Changed width to 200px */
     height: 100vh;
+    background-color: white;
+    /* Changed to white */
     padding: 20px;
     box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+    /* Added box-shadow for slight 3D effect */
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.sidebar a {
-    text-decoration: none;
-    color: #333;
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-.sidebar a.active {
+.logo {
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+.app-title {
+    font-size: 20px;
+    color: #333;
+    /* Changed text color to dark for better visibility on white */
     font-weight: bold;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sidebar-item {
+    text-decoration: none;
+    color: black;
+    /* Changed text color to black */
+    padding: 12px 15px;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, padding 0.2s ease;
+}
+
+.sidebar-item:hover {
+    background-color: #f1f1f1;
+    /* Light grey background on hover */
+    padding-left: 20px;
+    /* Slight left padding for hover effect */
+}
+
+.sidebar-item.active {
+    font-weight: bold;
+    /* Bold text for active link */
     color: #007bff;
+    /* Blue color for active link */
 }

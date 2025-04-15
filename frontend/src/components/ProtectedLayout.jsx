@@ -17,11 +17,19 @@ export default function ProtectedLayout() {
     };
 
     return (
-        <div style={{ display: 'flex', height: '100vh', flexDirection: 'column' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', height: '100vh', overflow: 'hidden' }}>
+            {/* Navbar at top */}
             <Navbar onLogout={logout} />
-            <div style={{ display: 'flex', flex: 1 }}>
-                <Sidebar />
-                <div style={{ padding: '20px', flex: 1 }}>
+
+            {/* Body: Sidebar + Content */}
+            <div style={{ display: 'flex', flexGrow: 1, minHeight: 0 }}>
+                {/* Sidebar (fixed, no scroll) */}
+                <div style={{ width: '250px', flexShrink: 0, overflow: 'hidden' }}>
+                    <Sidebar />
+                </div>
+
+                {/* Main Content (scrollable) */}
+                <div style={{ flexGrow: 1, overflowY: 'auto', padding: '20px', minHeight: 0 }}>
                     <Outlet />
                 </div>
             </div>

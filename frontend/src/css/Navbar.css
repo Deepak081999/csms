@@ -1,24 +1,50 @@
-.navbar {
-    height: 60px;
-    background: #24292e;
-    color: white;
+/* Navbar.css */
+
+.navbar-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    padding: 10px 20px;
+    background: white;
+    /* Change to white */
+    color: black;
 }
 
-.navbar-left .logo {
-    font-size: 24px;
-    margin-right: 10px;
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
-.navbar-left .app-name {
+.brand-logo {
+    display: flex;
+    align-items: center;
+}
+
+.app-title {
+    margin-left: 10px;
+    font-size: 18px;
     font-weight: bold;
 }
 
-.navbar-right {
+.user-info {
     display: flex;
-    gap: 10px;
     align-items: center;
+}
+
+.username {
+    margin-right: 15px;
+}
+
+.logout-btn {
+    padding: 8px 15px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background-color: #d32f2f;
 }
