@@ -1,0 +1,63 @@
+.ticket-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: white;
+    /* Set background to white */
+    color: black;
+    /* Set default text color to black */
+}
+
+.ticket-form {
+    margin-bottom: 20px;
+}
+
+.ticket-form input {
+    padding: 8px;
+    margin-right: 10px;
+    width: 200px;
+    color: black;
+    /* Text color for inputs */
+    background-color: white;
+    /* Background color for inputs */
+    border: 1px solid #ccc;
+}
+
+.ticket-form input:nth-child(2) {
+    width: 300px;
+}
+
+.ticket-form button {
+    padding: 8px 16px;
+    background-color: #f2f2f2;
+    color: black;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.ticket-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+    color: black;
+}
+
+.ticket-table th,
+.ticket-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+.ticket-table th {
+    background-color: #f2f2f2;
+}
+
+.ticket-actions button {
+    margin-right: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #e7e7e7;
+    color: black;
+    border: 1px solid #bbb;
+}

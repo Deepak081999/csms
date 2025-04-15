@@ -5,11 +5,11 @@ export default function Sidebar() {
     return (
         <aside className="sidebar">
             <nav className="sidebar-nav">
-                <NavLink to="/dashboard/new" className="sidebar-item" activeClassName="active">
-                    New Ticket
-                </NavLink>
                 <NavLink to="/dashboard/tickets" className="sidebar-item" activeClassName="active">
-                    Ticket List
+                    Ticket Manager
+                </NavLink>
+                <NavLink to="/dashboard/linkedin" className="sidebar-item" activeClassName="active">
+                    LinkedIn Profile
                 </NavLink>
                 <NavLink to="/dashboard/github" className="sidebar-item" activeClassName="active">
                     GitHub Repo List
