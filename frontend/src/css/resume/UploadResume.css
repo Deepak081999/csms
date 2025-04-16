@@ -1,0 +1,103 @@
+/* General container for the form */
+.upload-resume-container {
+    width: 50%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styling */
+h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Styling for form */
+.upload-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Grouping form elements */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Input and select field styling */
+.input-field {
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+    width: 100%;
+}
+
+/* Focus state for input fields */
+.input-field:focus {
+    border-color: #4CAF50;
+}
+
+/* Button styling */
+.submit-btn {
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+/* Hover effect for the submit button */
+.submit-btn:hover {
+    background-color: #45a049;
+}
+
+/* Disable the button when loading */
+.submit-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Message for success */
+.success-message {
+    text-align: center;
+    color: green;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+/* Message for error */
+.error-message {
+    text-align: center;
+    color: red;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+/* Responsive Design for small screens */
+@media (max-width: 768px) {
+    .upload-resume-container {
+        width: 80%;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .input-field {
+        font-size: 14px;
+    }
+
+    .submit-btn {
+        font-size: 14px;
+    }
+}

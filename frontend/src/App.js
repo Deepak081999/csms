@@ -7,7 +7,10 @@ import GitHubRepoList from './pages/GitHubRepoList';
 import Settings from './pages/Settings';
 import Role from './pages/Role';
 import Permission from './pages/Permission';
-import Resume from './pages/Resume'; import LinkedInProfile from './pages/LinkedInProfile';
+import UploadResume from './pages/resume/UploadResume';
+import ResumeTable from './pages/resume/ResumeTable';
+import ShowResume from './pages/resume/ShowResume';
+import LinkedInProfile from './pages/LinkedInProfile';
 
 
 
@@ -25,7 +28,9 @@ function App() {
           <Route path="settings" element={<Settings />} />
           <Route path="role" element={<Role />} />
           <Route path="permission" element={<Permission />} />
-          <Route path="resume" element={<Resume />} />
+          <Route path="UploadResume" element={<UploadResume />} />
+          <Route path="ResumeTable" element={<ResumeTable />} />
+          <Route path="ShowResume" element={<ShowResume />} />
         </Route>
         <Route path="*" element={<div>404 - Page Not Found</div>} />
       </Routes>
