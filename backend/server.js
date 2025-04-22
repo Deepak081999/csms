@@ -6,7 +6,7 @@ import cors from 'cors';
 import axios from 'axios';
 
 import ticketRoutes from './routes/ticketRoutes.js';
-import authRoutes from './routes/authRoutes.js';
+import authRoutes from './routes/auth/index.js';
 import resumeRoutes from './routes/resumeRoutes.js';
 
 dotenv.config();
@@ -20,7 +20,9 @@ app.use(express.json());
 // 👉 Route for your ticket management system
 app.use('/api/tickets', ticketRoutes);
 
-app.use('/api/auth', authRoutes);
+// Use the individual routes
+// Routes
+app.use('/api', authRoutes);
 
 app.use('/api', resumeRoutes);
 

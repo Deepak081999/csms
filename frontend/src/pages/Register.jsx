@@ -1,33 +1,37 @@
-import { useState } from 'react';
-import { register } from '../api/auth';
-import { useNavigate } from 'react-router-dom'; import { Link } from 'react-router-dom';
-// import Login from './pages/Login';
+import React, { useState } from 'react';
+import { register } from '../api/auth'; // adjust path if needed
 
-export default function Register() {
-    const [form, setForm] = useState({ name: '', email: '', password: '' });
-    const navigate = useNavigate();
+const Register = () => {
+    const [formData, setFormData] = useState({ name: '', email: '', password: '' });
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
+
+    const handleChange = (e) => {
+        setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await register(form);
-            alert('Registered successfully');
-            navigate('/login');
+            const data = await register(formData);
+            setSuccess(data.message);
+            setError('');
         } catch (err) {
-            alert(err.response.data.message);
+            setError(err.message || 'Registration failed');
         }
     };
 
     return (
         <form onSubmit={handleSubmit}>
-            <input placeholder="Name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
-            <input placeholder="Email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
-            <input placeholder="Password" type="password" value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })} />
+            <h2>Register</h2>
+            {success && <p style={{ color: 'green' }}>{success}</p>}
+            {error && <p style={{ color: 'red' }}>{error}</p>}
+            <input type="text" name="name" onChange={handleChange} placeholder="Name" required />
+            <input type="email" name="email" onChange={handleChange} placeholder="Email" required />
+            <input type="password" name="password" onChange={handleChange} placeholder="Password" required />
             <button type="submit">Register</button>
-
-            <hr />
-
-            <p>Already have an account? <Link to="/login">Login here</Link></p>
         </form>
     );
-}
+};
+
+export default Register;
