@@ -26,7 +26,7 @@ app.use('/api/tickets', ticketRoutes);
 app.use('/api', authRoutes);
 
 app.use('/api', resumeRoutes);
-app.use('/api/users', UserRoutes);
+app.use('/api', UserRoutes);
 
 
 

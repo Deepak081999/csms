@@ -1,14 +1,18 @@
 import express from 'express';
-import { addUser, deleteUser, getAllUsers } from '../controllers/uersController.js';
+import { addUser, getAllUsers, updateUserRole, deleteUser } from '../controllers/uersController.js';
 
 const router = express.Router();
 
-// Route to add a user (with default admin role)
+// Route to add a new user
 router.post('/add', addUser);
 
-router.get('/', getAllUsers); // GET all resumes
-// router.get('/', updateUserRole); // GET all resumes
-// Route to delete a user by userId
-router.delete('/delete/:userId', deleteUser);
+// Route to get all users, roles, and permissions
+router.get('/users', getAllUsers);
+
+// PUT route to update user's role and permissions
+router.put('/users/:id', updateUserRole);
+
+// Route to delete a user by ID
+router.delete('/users/:id', deleteUser);
 
 export default router;

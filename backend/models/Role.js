@@ -2,7 +2,12 @@ import mongoose from 'mongoose';
 
 const RoleSchema = new mongoose.Schema({
     name: { type: String, required: true, unique: true },
-    permissions: { type: [String], required: true }  // List of permissions
+    permissions: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Permission'
+        }
+    ] // List of permissions
 });
 
 const Role = mongoose.model('Role', RoleSchema);
