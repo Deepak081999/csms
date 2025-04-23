@@ -7,18 +7,17 @@ export default function Sidebar() {
     const [permissions, setPermissions] = useState([]);
     const [role, setRole] = useState('');
 
+    // Update role and permissions when the user is logged in
     useEffect(() => {
         const savedPermissions = JSON.parse(localStorage.getItem('permissions') || '[]');
         const savedUser = JSON.parse(localStorage.getItem('user') || '{}');
         setPermissions(savedPermissions);
         setRole(savedUser.role || '');
-        console.log(savedPermissions);
     }, []);
 
     return (
         <aside className="sidebar">
             <nav className="sidebar-nav">
-                {/* Accessible to all roles */}
                 {/* Superadmin sees all options */}
                 {role.name === 'superadmin' && (
                     <>
@@ -105,7 +104,6 @@ export default function Sidebar() {
                 {/* User sees only specific options based on permissions */}
                 {role.name === 'user' && (
                     <>
-
                         {permissions.includes('view_resume') && (
                             <>
                                 <div

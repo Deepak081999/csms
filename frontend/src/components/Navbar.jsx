@@ -4,8 +4,14 @@ import '../css/Navbar.css';
 
 const Navbar = ({ onLogout }) => {
     const user = JSON.parse(localStorage.getItem('user'));
-    const role = user?.role || '';
-    // console.log(user); // For debugging purposes, remove in production
+    const role = user?.role || ''; // Assuming user role is stored in user object
+
+    // Handle role change
+    const handleRoleChange = (newRole) => {
+        const updatedUser = { ...user, role: newRole };
+        localStorage.setItem('user', JSON.stringify(updatedUser)); // Update the role in localStorage
+        window.location.reload(); // Reload to apply role-based changes immediately
+    };
 
     return (
         <nav className="navbar-container">
@@ -18,14 +24,20 @@ const Navbar = ({ onLogout }) => {
                     {user ? (
                         <>
                             <span className="username">{user.name}</span>
-                            {/* Conditionally show "Manage Roles" for superadmin */}
-                            {role === 'superadmin' && (
-                                <Link to="/dashboard/role" className="navbar-item">Manage Roles</Link>
+
+                            {/* Dropdown for selecting role (visible only for superadmin) */}
+                            {role.name === 'superadmin' && (
+                                <div className="dropdown">
+                                    <button className="dropdown-btn">Select Role</button>
+                                    <div className="dropdown-content">
+                                        <button onClick={() => handleRoleChange('superadmin')}>Superadmin</button>
+                                        <button onClick={() => handleRoleChange('admin')}>Admin</button>
+                                        <button onClick={() => handleRoleChange('user')}>User</button>
+                                    </div>
+                                </div>
                             )}
-                            {/* Conditionally show "Settings" for admin or superadmin */}
-                            {role === 'admin' || role === 'superadmin' ? (
-                                <Link to="/dashboard/settings" className="navbar-item">Settings</Link>
-                            ) : null}
+
+
                             <button className="logout-btn" onClick={onLogout}>Logout</button>
                         </>
                     ) : (
