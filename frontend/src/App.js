@@ -9,6 +9,7 @@ import Settings from './pages/Settings';
 import Role from './pages/Role';
 import Permission from './pages/Permission';
 import UploadResume from './pages/resume/UploadResume';
+import AddUser from './pages/user/AddUser';
 import ResumeTable from './pages/resume/ResumeTable';
 import ShowResume from './pages/resume/ShowResume';
 import LinkedInProfile from './pages/LinkedInProfile';
@@ -31,6 +32,7 @@ function App() {
           <Route path="role" element={<Role />} />
           <Route path="permission" element={<Permission />} />
           <Route path="UploadResume" element={<UploadResume />} />
+          <Route path="AddUser" element={<AddUser />} />
           <Route path="ResumeTable" element={<ResumeTable />} />
           <Route path="ShowResume" element={<ShowResume />} />
         </Route>

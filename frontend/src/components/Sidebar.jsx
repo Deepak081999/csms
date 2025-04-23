@@ -4,6 +4,7 @@ import '../css/Sidebar.css';
 
 export default function Sidebar() {
     const [showResumeOptions, setShowResumeOptions] = useState(false);
+    const [showUserOptions, setShowUserOptions] = useState(false);
     const [permissions, setPermissions] = useState([]);
     const [role, setRole] = useState('');
 
@@ -44,13 +45,25 @@ export default function Sidebar() {
                                 </NavLink>
                             </div>
                         )}
+                        <div className="sidebar-item"
+                            onClick={() => setShowUserOptions(!showUserOptions)}
+                            style={{ cursor: 'pointer' }}>
+                            User
+                        </div> {showUserOptions && (
+                            <div className="submenu">
+                                <NavLink to="/dashboard/AddUser" className="sidebar-subitem" activeClassName="active">
+                                    AddUser
+                                </NavLink>
+
+                            </div>
+                        )}
                         <NavLink to="/dashboard/github" className="sidebar-item" activeClassName="active">
                             GitHub Repo List
                         </NavLink>
                         <NavLink to="/dashboard/linkedin" className="sidebar-item" activeClassName="active">
                             LinkedIn Profile
                         </NavLink>
-                        <NavLink to="/dashboard/settings" className="sidebar-item" activeClassName="active">
+                        {/* <NavLink to="/dashboard/settings" className="sidebar-item" activeClassName="active">
                             Settings
                         </NavLink>
                         <NavLink to="/dashboard/role" className="sidebar-item" activeClassName="active">
@@ -58,7 +71,7 @@ export default function Sidebar() {
                         </NavLink>
                         <NavLink to="/dashboard/permission" className="sidebar-item" activeClassName="active">
                             Permission
-                        </NavLink>
+                        </NavLink> */}
                     </>
                 )}
 
