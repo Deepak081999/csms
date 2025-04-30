@@ -4,14 +4,14 @@ import '../css/Navbar.css';
 
 const Navbar = ({ onLogout }) => {
     const user = JSON.parse(localStorage.getItem('user'));
-    const role = user?.role || ''; // Assuming user role is stored in user object
+    // const role = user?.role || ''; // Assuming user role is stored in user object
 
     // Handle role change
-    const handleRoleChange = (newRole) => {
-        const updatedUser = { ...user, role: newRole };
-        localStorage.setItem('user', JSON.stringify(updatedUser)); // Update the role in localStorage
-        window.location.reload(); // Reload to apply role-based changes immediately
-    };
+    // const handleRoleChange = (newRole) => {
+    //     const updatedUser = { ...user, role: newRole };
+    //     localStorage.setItem('user', JSON.stringify(updatedUser)); // Update the role in localStorage
+    //     window.location.reload(); // Reload to apply role-based changes immediately
+    // };
 
     return (
         <nav className="navbar-container">
