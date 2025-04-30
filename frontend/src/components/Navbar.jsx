@@ -26,7 +26,7 @@ const Navbar = ({ onLogout }) => {
                             <span className="username">{user.name}</span>
 
                             {/* Dropdown for selecting role (visible only for superadmin) */}
-                            {role.name === 'superadmin' && (
+                            {/* {role.name === 'superadmin' && (
                                 <div className="dropdown">
                                     <button className="dropdown-btn">Select Role</button>
                                     <div className="dropdown-content">
@@ -35,7 +35,7 @@ const Navbar = ({ onLogout }) => {
                                         <button onClick={() => handleRoleChange('user')}>User</button>
                                     </div>
                                 </div>
-                            )}
+                            )} */}
 
 
                             <button className="logout-btn" onClick={onLogout}>Logout</button>

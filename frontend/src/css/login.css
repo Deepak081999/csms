@@ -1,21 +1,32 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
 
-* {
+.auth-page * {
     box-sizing: border-box;
 }
 
-body {
+.auth-page {
     font-family: 'Montserrat', sans-serif;
     background: #fff;
-    /* Changed to white */
     color: #000;
-    /* Text color set to black */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+}
+
+.auth-page .container {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.22);
+    position: relative;
+    overflow: hidden;
+    width: 768px;
+    max-width: 100%;
+    min-height: 480px;
+    display: flex;
 }
 
 .container {
@@ -77,8 +88,8 @@ input {
 
 button {
     border-radius: 20px;
-    border: 1px solid #ff4b2b;
-    background: #ff4b2b;
+    border: 1px solid #e9cbc4;
+    background: #dbc6c2;
     color: #fff;
     font-size: 12px;
     padding: 12px 45px;
@@ -93,7 +104,7 @@ button.ghost {
 }
 
 button:hover {
-    background: #ff3b1a;
+    background: #d08f84;
 }
 
 a {
@@ -121,7 +132,7 @@ a {
 /* Overlay Styles */
 .overlay-container {
     width: 50%;
-    background: linear-gradient(to right, #ff4b2b, #ff416c);
+    background: linear-gradient(to right, #d8b6b0, #d68094);
     color: #fff;
     display: flex;
     align-items: center;
