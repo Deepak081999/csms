@@ -5,7 +5,7 @@ import ProtectedLayout from './components/ProtectedLayout';
 // import Sidebar from './components/Sidebar';
 import TicketManager from './pages/TicketManager';
 import GitHubRepoList from './pages/GitHubRepoList';
-import Settings from './pages/Settings';
+// import Settings from './pages/Settings';
 import Role from './pages/Role';
 import Permission from './pages/Permission';
 import UploadResume from './pages/resume/UploadResume';
@@ -28,7 +28,7 @@ function App() {
           <Route path="tickets" element={<TicketManager />} />
           <Route path="linkedin" element={<LinkedInProfile />} />
           <Route path="github" element={<GitHubRepoList />} />
-          <Route path="settings" element={<Settings />} />
+          {/* <Route path="settings" element={<Settings />} /> */}
           <Route path="role" element={<Role />} />
           <Route path="permission" element={<Permission />} />
           <Route path="UploadResume" element={<UploadResume />} />

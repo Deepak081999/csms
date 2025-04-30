@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #fff;
+    /* Changed to white */
+    color: #000;
+    /* Text color set to black */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: #fff;
+    /* Changed to white */
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.22);
+    position: relative;
+    overflow: hidden;
+    width: 768px;
+    max-width: 100%;
+    min-height: 480px;
+    display: flex;
+}
+
+.form-container {
+    position: relative;
+    padding: 50px;
+    width: 50%;
+    transition: all 0.6s ease-in-out;
+}
+
+.sign-in-container {
+    background: #fff;
+}
+
+form {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 0 50px;
+    height: 100%;
+    justify-content: center;
+    text-align: center;
+}
+
+h1 {
+    font-weight: bold;
+    margin: 0;
+    color: #000;
+    /* Text color set to black */
+}
+
+span {
+    font-size: 12px;
+    color: #999;
+    margin: 10px 0;
+}
+
+input {
+    background: #eee;
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 100%;
+    border-radius: 20px;
+}
+
+button {
+    border-radius: 20px;
+    border: 1px solid #ff4b2b;
+    background: #ff4b2b;
+    color: #fff;
+    font-size: 12px;
+    padding: 12px 45px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+    cursor: pointer;
+}
+
+button.ghost {
+    background: transparent;
+    border-color: #fff;
+}
+
+button:hover {
+    background: #ff3b1a;
+}
+
+a {
+    color: #333;
+    font-size: 12px;
+    text-decoration: none;
+    margin: 10px 0;
+}
+
+.social-container {
+    margin: 20px 0;
+}
+
+.social-container a {
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+    height: 40px;
+    width: 40px;
+}
+
+/* Overlay Styles */
+.overlay-container {
+    width: 50%;
+    background: linear-gradient(to right, #ff4b2b, #ff416c);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+}
+
+.overlay-panel h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+    /* Text color set to black */
+}
+
+.overlay-panel p {
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 20px 0;
+    color: #000;
+    /* Text color set to black */
+}
