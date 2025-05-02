@@ -9,6 +9,8 @@ import ticketRoutes from './routes/ticketRoutes.js';
 import authRoutes from './routes/auth/index.js';
 import resumeRoutes from './routes/resumeRoutes.js';
 import UserRoutes from './routes/userRoutes.js';
+import linkedinRoutes from './routes/linkedinProfileRoutes.js';
+
 
 dotenv.config();
 
@@ -28,6 +30,7 @@ app.use('/api', authRoutes);
 app.use('/api', resumeRoutes);
 app.use('/api', UserRoutes);
 
+app.use('/api/linkedin', linkedinRoutes);
 
 
 // 👉 New route to fetch GitHub repositories

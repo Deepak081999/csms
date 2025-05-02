@@ -5,6 +5,7 @@ import '../css/Sidebar.css';
 export default function Sidebar() {
     const [showResumeOptions, setShowResumeOptions] = useState(false);
     const [showUserOptions, setShowUserOptions] = useState(false);
+    const [showlinkedinOptions, setShowlinkedinOptions] = useState(false);
     const [permissions, setPermissions] = useState([]);
     const [role, setRole] = useState('');
 
@@ -60,9 +61,25 @@ export default function Sidebar() {
                         <NavLink to="/dashboard/github" className="sidebar-item" activeClassName="active">
                             GitHub Repo List
                         </NavLink>
-                        <NavLink to="/dashboard/linkedin" className="sidebar-item" activeClassName="active">
-                            LinkedIn Profile
-                        </NavLink>
+
+
+                        <div className="sidebar-item"
+                            onClick={() => setShowlinkedinOptions(!showlinkedinOptions)}
+                            style={{ cursor: 'pointer' }}>
+                            Linkedin Profile
+                        </div> {showlinkedinOptions && (
+                            <div className="submenu">
+                                <NavLink to="/dashboard/AddLinkedInPage" className="sidebar-item" activeClassName="active">
+                                    Add New LinkedIn Profile
+                                </NavLink>
+                                <NavLink to="/dashboard/LinkedInProfilePage " className="sidebar-item" activeClassName="active">
+                                    Show LinkedIn Profile
+                                </NavLink>
+
+                            </div>
+                        )}
+
+
                         {/* <NavLink to="/dashboard/settings" className="sidebar-item" activeClassName="active">
                             Settings
                         </NavLink>

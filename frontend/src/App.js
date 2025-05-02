@@ -13,6 +13,8 @@ import AddUser from './pages/user/AddUser';
 import ResumeTable from './pages/resume/ResumeTable';
 import ShowResume from './pages/resume/ShowResume';
 import LinkedInProfile from './pages/LinkedInProfile';
+import AddLinkedInPage from './pages/linkedin/AddLinkedInPage';
+import LinkedInProfilePage from './pages/linkedin/LinkedInProfilePage';
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
         <Route path="/dashboard" element={<ProtectedLayout />}>
           <Route path="tickets" element={<TicketManager />} />
           <Route path="linkedin" element={<LinkedInProfile />} />
+          <Route path="AddLinkedInPage" element={<AddLinkedInPage />} />
+          <Route path="LinkedInProfilePage" element={<LinkedInProfilePage />} />
           <Route path="github" element={<GitHubRepoList />} />
           {/* <Route path="settings" element={<Settings />} /> */}
           <Route path="role" element={<Role />} />

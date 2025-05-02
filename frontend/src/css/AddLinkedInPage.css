@@ -1,0 +1,29 @@
+.container {
+    padding: 2rem;
+    background-color: white;
+    color: black;
+}
+
+input,
+textarea,
+button {
+    margin: 5px 0;
+}
+
+button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+table th,
+table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
