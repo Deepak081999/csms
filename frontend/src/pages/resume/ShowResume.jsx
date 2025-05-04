@@ -4,6 +4,7 @@ import axios from 'axios';
 const ShowResume = () => {
     const [resumes, setResumes] = useState([]);
     const [selectedPdfUrl, setSelectedPdfUrl] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         const fetchActiveResumes = async () => {
@@ -11,6 +12,11 @@ const ShowResume = () => {
                 const response = await axios.get('http://localhost:5000/api/resumes');
                 const activeResumes = response.data.filter(resume => resume.status === 'Active');
                 setResumes(activeResumes);
+
+                if (activeResumes.length > 0) {
+                    // Automatically show the first active resume
+                    handleViewResume(activeResumes[0]._id, `${activeResumes[0].name}.pdf`);
+                }
             } catch (err) {
                 console.error('Error fetching active resumes:', err);
             }
@@ -19,8 +25,9 @@ const ShowResume = () => {
         fetchActiveResumes();
     }, []);
 
-    const handleDownloadAndView = async (resumeId, fileName) => {
+    const handleViewResume = async (resumeId, fileName) => {
         try {
+            setLoading(true); // Show loading while fetching
             const response = await axios.get(`http://localhost:5000/api/resumes/${resumeId}`, {
                 responseType: 'blob',
             });
@@ -28,17 +35,22 @@ const ShowResume = () => {
             const blob = new Blob([response.data], { type: 'application/pdf' });
             const url = URL.createObjectURL(blob);
             setSelectedPdfUrl(url); // Set the PDF URL to display on the page
-
-            // Trigger the download action
-            const link = document.createElement('a');
-            link.href = url;
-            link.setAttribute('download', fileName || 'resume.pdf');
-            document.body.appendChild(link);
-            link.click();
-            link.remove();
+            setLoading(false); // Hide loading when PDF is ready
         } catch (err) {
-            console.error('Download or View failed:', err);
+            console.error('Failed to load resume:', err);
+            setLoading(false);
         }
+    };
+
+    const handleDownload = () => {
+        if (!selectedPdfUrl) return;
+
+        const link = document.createElement('a');
+        link.href = selectedPdfUrl;
+        link.setAttribute('download', 'resume.pdf'); // Set default download name
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
     };
 
     return (
@@ -47,9 +59,13 @@ const ShowResume = () => {
             {resumes.map(resume => (
                 <div key={resume._id} className="resume-card">
                     <h3>{resume.name}</h3>
-                    <button onClick={() => handleDownloadAndView(resume._id, `${resume.name}.pdf`)}>Download & View</button>
                 </div>
             ))}
+            <button onClick={handleDownload} style={{ marginTop: '20px' }}>
+                Download Resume
+            </button>
+
+            {loading && <div>Loading...</div>}
 
             {selectedPdfUrl && (
                 <div className="pdf-viewer" style={{ marginTop: '20px' }}>
@@ -59,8 +75,8 @@ const ShowResume = () => {
                         width="100%"
                         height="600px"
                         type="application/pdf"
-                        title="PDF Viewer"
                     />
+
                 </div>
             )}
         </div>
