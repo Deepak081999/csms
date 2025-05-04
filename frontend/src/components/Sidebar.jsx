@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import '../css/Sidebar.css';
 
+import LinkedInOptions from './LinkedInOptions';
+
 export default function Sidebar() {
     const [showResumeOptions, setShowResumeOptions] = useState(false);
     const [showUserOptions, setShowUserOptions] = useState(false);
-    const [showlinkedinOptions, setShowlinkedinOptions] = useState(false);
+    // const [showlinkedinOptions, setShowlinkedinOptions] = useState(false);
     const [permissions, setPermissions] = useState([]);
     const [role, setRole] = useState('');
 
@@ -62,8 +64,8 @@ export default function Sidebar() {
                             GitHub Repo List
                         </NavLink>
 
-
-                        <div className="sidebar-item"
+                        <LinkedInOptions />
+                        {/* <div className="sidebar-item"
                             onClick={() => setShowlinkedinOptions(!showlinkedinOptions)}
                             style={{ cursor: 'pointer' }}>
                             Linkedin Profile
@@ -77,7 +79,7 @@ export default function Sidebar() {
                                 </NavLink>
 
                             </div>
-                        )}
+                        )} */}
 
 
                         {/* <NavLink to="/dashboard/settings" className="sidebar-item" activeClassName="active">
@@ -121,9 +123,7 @@ export default function Sidebar() {
                             </NavLink>
                         )}
                         {permissions.includes('create_linkedin') && (
-                            <NavLink to="/dashboard/linkedin" className="sidebar-item" activeClassName="active">
-                                LinkedIn Profile
-                            </NavLink>
+                            <LinkedInOptions />
                         )}
                         <NavLink to="/dashboard/settings" className="sidebar-item" activeClassName="active">
                             Settings
@@ -158,8 +158,8 @@ export default function Sidebar() {
                             </NavLink>
                         )}
                         {permissions.includes('view_linkedin') && (
-                            <NavLink to="/dashboard/linkedin" className="sidebar-item" activeClassName="active">
-                                LinkedIn Profile
+                            <NavLink to="/dashboard/LinkedInProfilePage" className="sidebar-item" activeClassName="active">
+                                Show LinkedIn Profile
                             </NavLink>
                         )}
                     </>
