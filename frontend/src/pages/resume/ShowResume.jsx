@@ -1,54 +1,68 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const ShowResume = ({ id }) => {
-    const [resumeData, setResumeData] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [status, setStatus] = useState(null);
+const ShowResume = () => {
+    const [resumes, setResumes] = useState([]);
+    const [selectedPdfUrl, setSelectedPdfUrl] = useState(null);
 
     useEffect(() => {
-        const fetchResume = async () => {
-            if (!id) {
-                setLoading(false);
-                return;
-            }
-
+        const fetchActiveResumes = async () => {
             try {
-                const metaRes = await axios.get(`http://localhost:5000/api/resumes/meta/${id}`);
-                const resumeMeta = metaRes.data;
-                setStatus(resumeMeta.status);
-
-                if (resumeMeta.status === 'Active') {
-                    const fileRes = await axios.get(`http://localhost:5000/api/resumes/${id}`, {
-                        responseType: 'arraybuffer',
-                    });
-
-                    const file = new Blob([fileRes.data], { type: 'application/pdf' });
-                    const fileURL = URL.createObjectURL(file);
-                    setResumeData(fileURL);
-                }
+                const response = await axios.get('http://localhost:5000/api/resumes');
+                const activeResumes = response.data.filter(resume => resume.status === 'Active');
+                setResumes(activeResumes);
             } catch (err) {
-                console.error('Error fetching resume:', err);
-            } finally {
-                setLoading(false);
+                console.error('Error fetching active resumes:', err);
             }
         };
 
-        fetchResume();
-    }, [id]);
+        fetchActiveResumes();
+    }, []);
 
-    if (loading || !resumeData || status !== 'Active') return null;
+    const handleDownloadAndView = async (resumeId, fileName) => {
+        try {
+            const response = await axios.get(`http://localhost:5000/api/resumes/${resumeId}`, {
+                responseType: 'blob',
+            });
+
+            const blob = new Blob([response.data], { type: 'application/pdf' });
+            const url = URL.createObjectURL(blob);
+            setSelectedPdfUrl(url); // Set the PDF URL to display on the page
+
+            // Trigger the download action
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', fileName || 'resume.pdf');
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+        } catch (err) {
+            console.error('Download or View failed:', err);
+        }
+    };
 
     return (
-        <div>
-            <h3>Resume Preview</h3>
-            <iframe
-                src={resumeData}
-                width="100%"
-                height="500"
-                title="Resume"
-                style={{ border: '1px solid #ccc' }}
-            ></iframe>
+        <div className="active-resume-container">
+            <h2>Active Resumes</h2>
+            {resumes.map(resume => (
+                <div key={resume._id} className="resume-card">
+                    <h3>{resume.name}</h3>
+                    <button onClick={() => handleDownloadAndView(resume._id, `${resume.name}.pdf`)}>Download & View</button>
+                </div>
+            ))}
+
+            {selectedPdfUrl && (
+                <div className="pdf-viewer" style={{ marginTop: '20px' }}>
+                    <h3>Resume Preview</h3>
+                    <embed
+                        src={selectedPdfUrl}
+                        width="100%"
+                        height="600px"
+                        type="application/pdf"
+                        title="PDF Viewer"
+                    />
+                </div>
+            )}
         </div>
     );
 };
