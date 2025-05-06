@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { register } from '../api/auth';
 import { useNavigate, Link } from 'react-router-dom';
-import '../css/login.css'; // Reusing the same CSS
+import styles from '../css/login.module.css'; // Import the CSS Module
 
 const Register = () => {
     const [formData, setFormData] = useState({ name: '', email: '', password: '' });
@@ -26,18 +26,17 @@ const Register = () => {
     };
 
     return (
-
-        <div className="auth-page">
-            <div className="container">
-                <div className="form-container sign-in-container">
+        <div className={styles.authPage}>
+            <div className={styles.container}>
+                <div className={styles.formContainer}>
                     <form onSubmit={handleSubmit}>
                         <h1>Create Account</h1>
-                        <div className="social-container">
-                            <a href="#"><i className="fab fa-facebook-f"></i></a>
+                        <div className={styles.socialContainer}>
+                            {/* <a href="#"><i className="fab fa-facebook-f"></i></a>
                             <a href="#"><i className="fab fa-google-plus-g"></i></a>
-                            <a href="#"><i className="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i className="fab fa-linkedin-in"></i></a> */}
                         </div>
-                        <span>or use your email for registration</span>
+                        {/* <span>or use your email for registration</span> */}
                         {success && <p style={{ color: 'green' }}>{success}</p>}
                         {error && <p style={{ color: 'red' }}>{error}</p>}
                         <input type="text" name="name" placeholder="Name" onChange={handleChange} required />
@@ -47,9 +46,9 @@ const Register = () => {
                     </form>
                 </div>
 
-                <div className="overlay-container">
-                    <div className="overlay">
-                        <div className="overlay-panel overlay-right">
+                <div className={styles.overlayContainer}>
+                    <div className={styles.overlay}>
+                        <div className="overlayPanel overlay-right">
                             <h1>Welcome Back!</h1>
                             <p>To keep connected with us, please login with your personal info</p>
                             <Link to="/Login">

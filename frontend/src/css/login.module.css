@@ -1,12 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
-
-.auth-page * {
-    box-sizing: border-box;
-}
-
-.auth-page {
-    font-family: 'Montserrat', sans-serif;
+/* login.module.css */
+.authPage {
     background: #fff;
     color: #000;
     display: flex;
@@ -16,22 +9,8 @@
     margin: 0;
 }
 
-.auth-page .container {
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-        0 10px 10px rgba(0, 0, 0, 0.22);
-    position: relative;
-    overflow: hidden;
-    width: 768px;
-    max-width: 100%;
-    min-height: 480px;
-    display: flex;
-}
-
 .container {
     background: #fff;
-    /* Changed to white */
     border-radius: 10px;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
         0 10px 10px rgba(0, 0, 0, 0.22);
@@ -43,32 +22,17 @@
     display: flex;
 }
 
-.form-container {
+.formContainer {
     position: relative;
     padding: 50px;
     width: 50%;
     transition: all 0.6s ease-in-out;
 }
 
-.sign-in-container {
-    background: #fff;
-}
-
-form {
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-    padding: 0 50px;
-    height: 100%;
-    justify-content: center;
-    text-align: center;
-}
-
 h1 {
     font-weight: bold;
     margin: 0;
     color: #000;
-    /* Text color set to black */
 }
 
 span {
@@ -88,7 +52,7 @@ input {
 
 button {
     border-radius: 20px;
-    border: 1px solid #e9cbc4;
+    border: 1px solid #f5d7d0;
     background: #dbc6c2;
     color: #fff;
     font-size: 12px;
@@ -96,11 +60,6 @@ button {
     text-transform: uppercase;
     transition: transform 80ms ease-in;
     cursor: pointer;
-}
-
-button.ghost {
-    background: transparent;
-    border-color: #fff;
 }
 
 button:hover {
@@ -114,11 +73,11 @@ a {
     margin: 10px 0;
 }
 
-.social-container {
+.socialContainer {
     margin: 20px 0;
 }
 
-.social-container a {
+.socialContainer a {
     border: 1px solid #ddd;
     border-radius: 50%;
     display: inline-flex;
@@ -129,8 +88,7 @@ a {
     width: 40px;
 }
 
-/* Overlay Styles */
-.overlay-container {
+.overlayContainer {
     width: 50%;
     background: linear-gradient(to right, #d8b6b0, #d68094);
     color: #fff;
@@ -150,17 +108,15 @@ a {
     width: 100%;
 }
 
-.overlay-panel h1 {
+.overlayPanel h1 {
     font-size: 24px;
     font-weight: bold;
     color: #000;
-    /* Text color set to black */
 }
 
-.overlay-panel p {
+.overlayPanel p {
     font-size: 14px;
     line-height: 1.4;
     margin: 20px 0;
     color: #000;
-    /* Text color set to black */
 }

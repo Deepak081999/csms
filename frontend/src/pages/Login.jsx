@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { login } from '../api/auth';
-import '../css/login.css';
+import styles from '../css/login.module.css'; // Import the CSS Module
 
 const Login = () => {
     const [formData, setFormData] = useState({ email: '', password: '' });
@@ -26,29 +26,28 @@ const Login = () => {
     };
 
     return (
-
-        <div className="auth-page">
-            <div className="container">
-                <div className="form-container sign-in-container">
+        <div className={styles.authPage}>
+            <div className={styles.container}>
+                <div className={styles.formContainer}>
                     <form onSubmit={handleSubmit}>
                         <h1>Sign in</h1>
-                        <div className="social-container">
-                            <a href="#"><i className="fab fa-facebook-f"></i></a>
+                        <div className={styles.socialContainer}>
+                            {/* <a href="#"><i className="fab fa-facebook-f"></i></a>
                             <a href="#"><i className="fab fa-google-plus-g"></i></a>
-                            <a href="#"><i className="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i className="fab fa-linkedin-in"></i></a> */}
                         </div>
-                        <span>or use your account</span>
+                        {/* <span>or use your account</span> */}
                         {error && <p style={{ color: 'red' }}>{error}</p>}
                         <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
                         <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
-                        <a href="#">Forgot your password?</a>
+                        {/* <a href="#">Forgot your password?</a> */}
                         <button type="submit">Sign In</button>
                     </form>
                 </div>
 
-                <div className="overlay-container">
-                    <div className="overlay">
-                        <div className="overlay-panel overlay-right">
+                <div className={styles.overlayContainer}>
+                    <div className={styles.overlay}>
+                        <div className="overlayPanel overlay-right">
                             <h1>Hello, Friend!</h1>
                             <p>Enter your personal details and start your journey with us</p>
                             <Link to="/Register">

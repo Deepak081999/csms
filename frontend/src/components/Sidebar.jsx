@@ -37,9 +37,6 @@ export default function Sidebar() {
                         </div>
                         {showResumeOptions && (
                             <div className="submenu">
-                                <NavLink to="/dashboard/UploadResume" className="sidebar-subitem" activeClassName="active">
-                                    Upload Resume
-                                </NavLink>
                                 <NavLink to="/dashboard/ResumeTable" className="sidebar-subitem" activeClassName="active">
                                     Resume Table
                                 </NavLink>
@@ -106,9 +103,6 @@ export default function Sidebar() {
                         </div>
                         {showResumeOptions && (
                             <div className="submenu">
-                                <NavLink to="/dashboard/UploadResume" className="sidebar-subitem" activeClassName="active">
-                                    Upload Resume
-                                </NavLink>
                                 <NavLink to="/dashboard/ResumeTable" className="sidebar-subitem" activeClassName="active">
                                     Resume Table
                                 </NavLink>

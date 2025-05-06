@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../../css/resume/ResumeTable.css';
-import '../../css/resume/UploadResume.css';
+// import '../../css/resume/UploadResume.css';
 
 const ResumeManager = () => {
     const [resumes, setResumes] = useState([]);
