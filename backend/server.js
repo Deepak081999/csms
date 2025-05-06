@@ -10,6 +10,7 @@ import authRoutes from './routes/auth/index.js';
 import resumeRoutes from './routes/resumeRoutes.js';
 import UserRoutes from './routes/userRoutes.js';
 import linkedinRoutes from './routes/linkedinProfileRoutes.js';
+import githubRoutes from './routes/githubRoutes.js';
 
 
 dotenv.config();
@@ -31,6 +32,8 @@ app.use('/api', resumeRoutes);
 app.use('/api', UserRoutes);
 
 app.use('/api/linkedin', linkedinRoutes);
+// Use GitHub routes
+app.use('/api/github', githubRoutes);
 
 
 // 👉 New route to fetch GitHub repositories

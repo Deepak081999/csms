@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import '../css/Sidebar.css';
 
 import LinkedInOptions from './LinkedInOptions';
+import GithubOptions from './GithubOptions';
 
 export default function Sidebar() {
     const [showResumeOptions, setShowResumeOptions] = useState(false);
@@ -57,6 +58,9 @@ export default function Sidebar() {
 
                             </div>
                         )}
+
+                        <GithubOptions />
+
                         <NavLink to="/dashboard/github" className="sidebar-item" activeClassName="active">
                             GitHub Repo List
                         </NavLink>
