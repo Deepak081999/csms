@@ -12,6 +12,13 @@ body {
     min-height: 100vh;
 }
 
+.profile-container h2 {
+    /* background-color: white; */
+    color: black;
+    font-size: 28px;
+    margin-bottom: 5%;
+}
+
 .profile-header {
     display: flex;
     flex-direction: column;

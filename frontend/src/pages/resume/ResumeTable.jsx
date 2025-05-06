@@ -135,10 +135,10 @@ const ResumeManager = () => {
                                 <td>{new Date(resume.createdAt).toLocaleString()}</td>
                                 <td>{resume.status}</td>
                                 <td>
-                                    <button className="status-btn" onClick={() => toggleStatus(resume._id)}>
+                                    <button onClick={() => toggleStatus(resume._id)}>
                                         Toggle Status
                                     </button>
-                                    <button className="delete-btn" onClick={() => deleteResume(resume._id)}>
+                                    <button style={{ background: 'red', color: 'white', padding: '5px 10px' }} onClick={() => deleteResume(resume._id)}>
                                         Delete
                                     </button>
                                 </td>

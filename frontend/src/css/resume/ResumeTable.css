@@ -90,10 +90,53 @@
     background-color: #117a8b;
 }
 
-.delete-btn {
+
+
+.resume-table-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.resume-table-container h2 {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.resume-table-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.resume-table-container th,
+.resume-table-container td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.resume-table-container select {
+    padding: 6px;
+    border-radius: 4px;
+}
+
+.resume-table-container button {
+    padding: 6px 12px;
+    margin: 2px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    background-color: #17a2b8;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.resume-table-container button:hover {
+    background-color: #138496;
+}
+
+.resume-table-container button[style*="background: red"] {
     background-color: #dc3545;
 }
 
-.delete-btn:hover {
+.resume-table-container button[style*="background: red"]:hover {
     background-color: #c82333;
 }
