@@ -18,8 +18,8 @@ const LinkedInProfilePage = () => {
     }, []);
 
     return (
-        <div className="linkedin-profile-card">
-            <h2>Active LinkedIn Profiles</h2>
+        <div className='linkedin-profile-h '>
+            <h2 >Active LinkedIn Profile </h2>
             <div className="profile-list">
                 {activeProfiles.map((profile) => (
                     <div className="linkedin-profile" key={profile._id}>

@@ -1,22 +1,43 @@
-/* LinkedInPage.css */
-.linkedin-container {
+.users-container {
     padding: 30px;
     font-family: Arial, sans-serif;
     min-height: 100vh;
+    /* Full screen height */
     color: #333;
+    /* Text color */
 }
 
-.linkedin-form .form-group {
+.user-container {
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    padding: 20px;
+    /* Removed background color, border-radius, and box-shadow */
+}
+
+.user-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #333;
+    /* Header text color */
+}
+
+.user-form .form-group {
     margin-bottom: 15px;
 }
 
-.linkedin-form input {
+.user-form input {
     width: 100%;
     padding: 10px;
     border: 1px solid #bbb;
     border-radius: 4px;
     font-size: 14px;
     box-sizing: border-box;
+}
+
+.form-actions {
+    text-align: center;
+    margin-top: 15px;
 }
 
 .submit-btn {
@@ -37,33 +58,33 @@
     background-color: #0056b3;
 }
 
-.linkedin-table-container {
+.user-table-container {
     max-width: 1000px;
     margin: 0 auto;
 }
 
-.linkedin-table-container h2 {
+.user-table-container h2 {
     margin-bottom: 15px;
     text-align: center;
 }
 
-.linkedin-table-container table {
+.user-table-container table {
     width: 100%;
     border-collapse: collapse;
 }
 
-.linkedin-table-container th,
-.linkedin-table-container td {
+.user-table-container th,
+.user-table-container td {
     padding: 10px;
     border: 1px solid #ddd;
 }
 
-.linkedin-table-container select {
+.user-table-container select {
     padding: 6px;
     border-radius: 4px;
 }
 
-.linkedin-table-container button {
+.user-table-container button {
     padding: 6px 12px;
     margin: 2px;
     border: none;
@@ -74,14 +95,14 @@
     transition: 0.3s;
 }
 
-.linkedin-table-container button:hover {
+.user-table-container button:hover {
     background-color: #138496;
 }
 
-.linkedin-table-container button[style*="background: red"] {
+.user-table-container button[style*="background: red"] {
     background-color: #dc3545;
 }
 
-.linkedin-table-container button[style*="background: red"]:hover {
+.user-table-container button[style*="background: red"]:hover {
     background-color: #c82333;
 }

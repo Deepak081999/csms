@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../../css/AddLinkedInPage.css';
+import '../../css/LinkedInProfilePage.css'; // Add the new CSS file for LinkedIn
 
 const AddLinkedInPage = () => {
     const [form, setForm] = useState({
@@ -56,6 +56,7 @@ const AddLinkedInPage = () => {
             console.error('Error fetching profiles:', err);
         }
     };
+
     const handleStatusChange = async (id, status) => {
         try {
             await axios.post('http://localhost:5000/api/linkedin/update-status', {
@@ -67,21 +68,21 @@ const AddLinkedInPage = () => {
             console.error('Failed to update status:', err);
         }
     };
+
     useEffect(() => {
         fetchProfiles();
     }, []);
 
     return (
-        <div style={{ padding: '2rem', backgroundColor: 'white', color: 'black' }}>
+        <div className="linkedin-container">
             <h2>Add LinkedIn Profile</h2>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="linkedin-form">
                 <input
                     name="name"
-                    placeholder="Name"
+                    placeholder="LinkedIn Name"
                     value={form.name}
                     onChange={handleChange}
                     required
-                    style={{ margin: '5px 0' }}
                 /><br />
                 <input
                     name="headline"
@@ -89,42 +90,36 @@ const AddLinkedInPage = () => {
                     value={form.headline}
                     onChange={handleChange}
                     required
-                    style={{ margin: '5px 0' }}
                 /><br />
                 <input
                     name="location"
                     placeholder="Location"
                     value={form.location}
                     onChange={handleChange}
-                    style={{ margin: '5px 0' }}
                 /><br />
                 <textarea
                     name="about"
                     placeholder="About"
                     value={form.about}
                     onChange={handleChange}
-                    style={{ margin: '5px 0', width: '100%', minHeight: '100px' }}
                 /><br />
                 <input
                     name="skills"
                     placeholder="Skills (comma-separated)"
                     value={form.skills}
                     onChange={handleChange}
-                    style={{ margin: '5px 0' }}
                 /><br />
                 <input
                     name="linkedin"
                     placeholder="LinkedIn URL"
                     value={form.linkedin}
                     onChange={handleChange}
-                    style={{ margin: '5px 0' }}
                 /><br />
                 <input
                     name="image"
                     placeholder="Image URL"
                     value={form.image}
                     onChange={handleChange}
-                    style={{ margin: '5px 0' }}
                 /><br />
                 <label>
                     <input
@@ -132,13 +127,12 @@ const AddLinkedInPage = () => {
                         name="isActive"
                         checked={form.isActive}
                         onChange={handleChange}
-                        style={{ margin: '5px 0' }}
                     />
                     Is Active
                 </label><br />
                 <button
                     type="submit"
-                    style={{ margin: '10px 0', padding: '10px', backgroundColor: '#4CAF50', color: 'white' }}
+                    className="submit-btn"
                 >
                     Add Profile
                 </button>
@@ -146,37 +140,39 @@ const AddLinkedInPage = () => {
 
             <hr />
 
-            <h2>All Profiles</h2>
-            <table border="1" cellPadding="10">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Headline</th>
-                        <th>Skills</th>
-                        <th>Status</th>
-                        <th>Toggle</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {profiles.map(profile => (
-                        <tr key={profile._id}>
-                            <td>{profile.name}</td>
-                            <td>{profile.headline}</td>
-                            <td>{profile.skills.join(', ')}</td>
-                            <td>{profile.isActive === 1 ? 'Active' : 'Inactive'}</td>
-                            <td>
-                                <button
-                                    onClick={() =>
-                                        handleStatusChange(profile._id, profile.isActive === 1 ? 0 : 1)
-                                    }
-                                >
-                                    {profile.isActive === 1 ? 'Deactivate' : 'Activate'}
-                                </button>
-                            </td>
+            <h2>All LinkedIn Profiles</h2>
+            <div className="linkedin-table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>LinkedIn Name</th>
+                            <th>Headline</th>
+                            <th>Skills</th>
+                            <th>Status</th>
+                            <th>Toggle</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {profiles.map(profile => (
+                            <tr key={profile._id}>
+                                <td>{profile.name}</td>
+                                <td>{profile.headline}</td>
+                                <td>{profile.skills.join(', ')}</td>
+                                <td>{profile.isActive === 1 ? 'Active' : 'Inactive'}</td>
+                                <td>
+                                    <button
+                                        onClick={() =>
+                                            handleStatusChange(profile._id, profile.isActive === 1 ? 0 : 1)
+                                        }
+                                    >
+                                        {profile.isActive === 1 ? 'Deactivate' : 'Activate'}
+                                    </button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };
